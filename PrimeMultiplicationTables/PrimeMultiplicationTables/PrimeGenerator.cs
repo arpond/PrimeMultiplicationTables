@@ -58,7 +58,28 @@ namespace PrimeMultiplicationTables
         /// <returns>The next Prime that is not in the list of primes</returns>
         private ulong GetNextPrime()
         {
-            return 3;
+            var possiblePrime = Primes.Last<ulong>();
+            ulong newPrime = 0;
+
+            do
+            {
+                possiblePrime++;
+                for(int indexOfPrime = 1; indexOfPrime < Primes.Count(); indexOfPrime++)
+                {
+                    var currentPrime = Primes[indexOfPrime];
+                    if (currentPrime > Math.Sqrt(possiblePrime))
+                    {
+                        newPrime = possiblePrime;
+                    }
+                    if (possiblePrime % currentPrime == 0)
+                    {
+                        break;
+                    }
+                }
+
+            } while (newPrime == 0);
+
+            return newPrime;
         }
     }
 }

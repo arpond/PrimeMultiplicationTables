@@ -53,7 +53,6 @@ namespace PrimeMultiplicationTables
             Assert.Equal(numberOfPrimes, testGenerator.GetNPrimes(numberOfPrimes).Count);
         }
 
-
         /// <summary>
         /// Check that a negative number of primes returns an empty list
         /// </summary>
@@ -66,6 +65,41 @@ namespace PrimeMultiplicationTables
         {
             PrimeGenerator testGenerator = new PrimeGenerator();
             Assert.Equal(0, testGenerator.GetNPrimes(numberOfPrimes).Count);
+        }
+
+        /// <summary>
+        /// Check that the third prime is 3.
+        /// </summary>
+        [Fact]
+        public void CheckThirdPrime()
+        {
+            PrimeGenerator testGenerator = new PrimeGenerator();
+            Assert.Equal<ulong>(3, testGenerator.GetNPrimes(3).ElementAt(2));
+        }
+
+        /// <summary>
+        /// Check that the fourth prime is 5.
+        /// </summary>
+        [Fact]
+        public void CheckFourthPrime()
+        {
+            PrimeGenerator testGenerator = new PrimeGenerator();
+            Assert.Equal<ulong>(5, testGenerator.GetNPrimes(4).ElementAt(3));
+        }
+
+        /// <summary>
+        /// Check that the first four primes are 1,2,3,5
+        /// </summary>
+        [Fact]
+        public void CheckFirstFourPrimes()
+        {
+            PrimeGenerator testGenerator = new PrimeGenerator();
+            List<ulong> testList = new List<ulong>();
+            testList.Add(1);
+            testList.Add(2);
+            testList.Add(3);
+            testList.Add(5);
+            Assert.Equal<List<ulong>>(testList, testGenerator.GetNPrimes(4));
         }
     }
 }
