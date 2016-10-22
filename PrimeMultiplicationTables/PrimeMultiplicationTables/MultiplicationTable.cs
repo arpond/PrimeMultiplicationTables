@@ -23,7 +23,7 @@ namespace PrimeMultiplicationTables
             }
 
             var results = CreateMultiplicationTable(toMultiply);
-            stringTable = formatTable(toMultiply, results);
+            stringTable = FormatTable(toMultiply, results);
 
             return stringTable;
         }
@@ -34,7 +34,7 @@ namespace PrimeMultiplicationTables
         /// <param name="headers">The headers for the table</param>
         /// <param name="results">The table results</param>
         /// <returns></returns>
-        private String formatTable(List<ulong> headers, List<List<ulong>> results)
+        private String FormatTable(List<ulong> headers, List<List<ulong>> results)
         {
             int numberOfValues = headers.Count;
 
@@ -43,12 +43,17 @@ namespace PrimeMultiplicationTables
                 results[rowNumber].Insert(0, headers[rowNumber]);
             }
 
-            String formatedTable = "|\t" + formatRow(headers);
+            ulong largestResult = results[numberOfValues - 1][numberOfValues - 1];
+            int maxSize = largestResult.ToString().Length;
+
+            String formatedTable = "|";
+            formatedTable = formatedTable.PadRight(maxSize + 3);
+            formatedTable += FormatRow(headers, maxSize);
 
             for (int row = 0; row < numberOfValues; row++)
             {
                 var currentRow = results[row];
-                formatedTable += formatRow(currentRow);
+                formatedTable += FormatRow(currentRow, maxSize);
             }
 
             return formatedTable;
@@ -59,9 +64,9 @@ namespace PrimeMultiplicationTables
         /// </summary>
         /// <param name="row">Row to be formated</param>
         /// <returns></returns>
-        private String formatRow(List<ulong> row)
+        private String FormatRow(List<ulong> row, int columnWidth)
         {
-            String formatedRow = "|\t" + string.Join("|\t", row.ToArray()) + "|\n";
+            String formatedRow = String.Concat(row.Select(value => String.Format("| {0," + columnWidth + "} ", value))) + "|\n";
             return formatedRow;
         }
 
