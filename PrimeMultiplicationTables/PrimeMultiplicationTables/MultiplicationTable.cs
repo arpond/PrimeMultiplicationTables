@@ -15,31 +15,54 @@ namespace PrimeMultiplicationTables
         /// <returns></returns>
         public String CreateStringTable(List<ulong> toMultiply)
         {
-            int numberOfValues = toMultiply.Count;
             String stringTable = "";
 
-            if (numberOfValues == 0)
+            if (toMultiply.Count == 0)
             {
                 return stringTable;
             }
 
-            var multiplicationTable = CreateMultiplicationTable(toMultiply);
-            List<ulong> headers = toMultiply;
+            var results = CreateMultiplicationTable(toMultiply);
+            stringTable = formatTable(toMultiply, results);
+
+            return stringTable;
+        }
+
+        /// <summary>
+        /// Formats a table
+        /// </summary>
+        /// <param name="headers">The headers for the table</param>
+        /// <param name="results">The table results</param>
+        /// <returns></returns>
+        private String formatTable(List<ulong> headers, List<List<ulong>> results)
+        {
+            int numberOfValues = headers.Count;
 
             for (int rowNumber = 0; rowNumber < numberOfValues; rowNumber++)
             {
-                multiplicationTable[rowNumber].Insert(0, headers[rowNumber]);
+                results[rowNumber].Insert(0, headers[rowNumber]);
             }
 
-            stringTable = "|\t|\t" + string.Join("|\t", toMultiply.ToArray()) + "|\n";
+            String formatedTable = "|\t" + formatRow(headers);
 
-            for(int row = 0; row < numberOfValues; row++)
+            for (int row = 0; row < numberOfValues; row++)
             {
-                var currentRow = multiplicationTable[row];
-                stringTable += "|\t" + string.Join("|\t",currentRow.ToArray()) + "|\n";
+                var currentRow = results[row];
+                formatedTable += formatRow(currentRow);
             }
 
-            return stringTable;
+            return formatedTable;
+        }
+
+        /// <summary>
+        /// Formats a single row
+        /// </summary>
+        /// <param name="row">Row to be formated</param>
+        /// <returns></returns>
+        private String formatRow(List<ulong> row)
+        {
+            String formatedRow = "|\t" + string.Join("|\t", row.ToArray()) + "|\n";
+            return formatedRow;
         }
 
         /// <summary>
