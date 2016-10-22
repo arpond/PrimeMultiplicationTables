@@ -25,6 +25,19 @@ namespace PrimeMultiplicationTables
         }
 
         /// <summary>
+        /// Check that the first two primes are 1 and 2.
+        /// </summary>
+        [Fact]
+        public void GetTwoPrimes()
+        {
+            PrimeGenerator testGenerator = new PrimeGenerator();
+            List<ulong> testList = new List<ulong>();
+            testList.Add(1);
+            testList.Add(2);
+            Assert.Equal<List<ulong>>(testList, testGenerator.GetNPrimes(2));
+        }
+
+        /// <summary>
         /// Check that the List returned is the same size as the number of primes asked for.
         /// </summary>
         /// <param name="numberOfPrimes">The number of primes to be generated</param>

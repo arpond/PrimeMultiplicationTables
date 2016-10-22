@@ -44,9 +44,18 @@ namespace PrimeMultiplicationTables
 
             for (int currPrime = 3; currPrime <= numberOfPrimes; currPrime++)
             {
-                Primes.Add(0);
+                Primes.Add(GetNextPrime());
             }
             return Primes;
+        }
+
+        /// <summary>
+        /// Calculates and returns the next prime in the list
+        /// </summary>
+        /// <returns>The next Prime that is not in the list of primes</returns>
+        private ulong GetNextPrime()
+        {
+            return 0;
         }
     }
 }
