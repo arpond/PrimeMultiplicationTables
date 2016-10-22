@@ -7,7 +7,16 @@ using Xunit;
 
 namespace PrimeMultiplicationTables.Tests
 {
-    class Tests_MultiplicationTable
+    public class Tests_MultiplicationTable
     {
+        /// <summary>
+        /// The empty list should return an empty String
+        /// </summary>
+        [Fact]
+        public void EmptyList()
+        {
+            MultiplicationTable testTable = new MultiplicationTable();
+            Assert.Equal("", testTable.CreateStringTable(new List<ulong>()));
+        }
     }
 }

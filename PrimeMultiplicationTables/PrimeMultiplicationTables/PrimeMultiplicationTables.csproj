@@ -62,9 +62,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MultiplicationTable.cs" />
     <Compile Include="PrimeGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\Tests_MultiplicationTable.cs" />
     <Compile Include="Tests\Test_PrimeGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
