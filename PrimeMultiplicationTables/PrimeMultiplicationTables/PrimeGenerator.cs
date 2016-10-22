@@ -11,5 +11,18 @@ namespace PrimeMultiplicationTables
     /// </summary>
     class PrimeGenerator
     {
+        static List<ulong> Primes;
+
+        static PrimeGenerator()
+        {
+            Primes = new List<ulong>();
+        }
+
+
+        public static List<ulong> GetNPrimes(int numberOfPrimes)
+        {
+            Primes.Add(1);
+            return Primes;
+        }
     }
 }
