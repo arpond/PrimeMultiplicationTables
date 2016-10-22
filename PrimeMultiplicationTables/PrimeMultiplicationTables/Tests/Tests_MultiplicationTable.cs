@@ -16,7 +16,7 @@ namespace PrimeMultiplicationTables.Tests
         public void EmptyList()
         {
             MultiplicationTable testTable = new MultiplicationTable();
-            Assert.Equal("", testTable.CreateStringTable(new List<ulong>()));
+            Assert.Equal(new List<List<ulong>>(), testTable.CreateMultiplicationTable(new List<ulong>()));
         }
     }
 }
