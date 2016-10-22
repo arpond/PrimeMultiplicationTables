@@ -33,19 +33,14 @@ namespace PrimeMultiplicationTables
             switch (numberOfPrimes)
             {
                 case 1:
-                    Primes.Add(1);
-                    return Primes;
-                case 2:
-                    Primes.Add(1);
                     Primes.Add(2);
                     return Primes;
                 default:
-                    Primes.Add(1);
                     Primes.Add(2);
                     break;
             }
 
-            for (int currPrime = 3; currPrime <= numberOfPrimes; currPrime++)
+            for (int currPrime = 2; currPrime <= numberOfPrimes; currPrime++)
             {
                 Primes.Add(GetNextPrime());
             }
@@ -64,7 +59,7 @@ namespace PrimeMultiplicationTables
             do
             {
                 possiblePrime++;
-                for(int indexOfPrime = 1; indexOfPrime < Primes.Count(); indexOfPrime++)
+                for(int indexOfPrime = 0; indexOfPrime < Primes.Count(); indexOfPrime++)
                 {
                     var currentPrime = Primes[indexOfPrime];
                     if (currentPrime > Math.Sqrt(possiblePrime))
@@ -76,7 +71,6 @@ namespace PrimeMultiplicationTables
                         break;
                     }
                 }
-
             } while (newPrime == 0);
 
             return newPrime;

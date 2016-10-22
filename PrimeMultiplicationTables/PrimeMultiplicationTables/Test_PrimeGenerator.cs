@@ -13,27 +13,27 @@ namespace PrimeMultiplicationTables
     public class Test_PrimeGenerator
     {
         /// <summary>
-        /// Check that the first prime is a list containing 1.
+        /// Check that the first prime is a list containing 2.
         /// </summary>
         [Fact]
         public void GetFirstPrime()
         {
             PrimeGenerator testGenerator = new PrimeGenerator();
             List<ulong> testList = new List<ulong>();
-            testList.Add(1);
+            testList.Add(2);
             Assert.Equal<List<ulong>>(testList, testGenerator.GetNPrimes(1));
         }
 
         /// <summary>
-        /// Check that the first two primes are 1 and 2.
+        /// Check that the first two primes are 2 and 3.
         /// </summary>
         [Fact]
         public void GetTwoPrimes()
         {
             PrimeGenerator testGenerator = new PrimeGenerator();
             List<ulong> testList = new List<ulong>();
-            testList.Add(1);
             testList.Add(2);
+            testList.Add(3);
             Assert.Equal<List<ulong>>(testList, testGenerator.GetNPrimes(2));
         }
 
@@ -68,37 +68,37 @@ namespace PrimeMultiplicationTables
         }
 
         /// <summary>
-        /// Check that the third prime is 3.
+        /// Check that the third prime is 5.
         /// </summary>
         [Fact]
         public void CheckThirdPrime()
         {
             PrimeGenerator testGenerator = new PrimeGenerator();
-            Assert.Equal<ulong>(3, testGenerator.GetNPrimes(3).ElementAt(2));
+            Assert.Equal<ulong>(5, testGenerator.GetNPrimes(3).ElementAt(2));
         }
 
         /// <summary>
-        /// Check that the fourth prime is 5.
+        /// Check that the fourth prime is 7.
         /// </summary>
         [Fact]
         public void CheckFourthPrime()
         {
             PrimeGenerator testGenerator = new PrimeGenerator();
-            Assert.Equal<ulong>(5, testGenerator.GetNPrimes(4).ElementAt(3));
+            Assert.Equal<ulong>(7, testGenerator.GetNPrimes(4).ElementAt(3));
         }
 
         /// <summary>
-        /// Check that the first four primes are 1,2,3,5
+        /// Check that the first four primes are 2,3,5,7
         /// </summary>
         [Fact]
         public void CheckFirstFourPrimes()
         {
             PrimeGenerator testGenerator = new PrimeGenerator();
             List<ulong> testList = new List<ulong>();
-            testList.Add(1);
             testList.Add(2);
             testList.Add(3);
             testList.Add(5);
+            testList.Add(7);
             Assert.Equal<List<ulong>>(testList, testGenerator.GetNPrimes(4));
         }
     }
