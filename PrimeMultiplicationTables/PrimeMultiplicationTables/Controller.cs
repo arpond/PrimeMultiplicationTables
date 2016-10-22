@@ -25,5 +25,20 @@ namespace PrimeMultiplicationTables
                 return new Tuple<bool, int>(true, number);
             }
         }
+
+        /// <summary>
+        /// Generates a string representing the multiplication table for the number of values given
+        /// </summary>
+        /// <param name="numberOfValues">The number of values to generate the table with</param>
+        /// <returns>String representation of the table</returns>
+        public static String GenerateTableForNValues(int numberOfValues)
+        {
+            PrimeGenerator pg = new PrimeGenerator();
+            MultiplicationTable mt = new MultiplicationTable();
+
+            var primes = pg.GetNPrimes(numberOfValues);
+            var stringTable = mt.CreateStringTable(primes);
+            return stringTable;
+        }
     }
 }

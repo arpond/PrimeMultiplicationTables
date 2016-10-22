@@ -61,6 +61,11 @@ namespace PrimeMultiplicationTables.Tests
             Assert.Equal(result, Controller.ValidateInput(input));
         }
 
+        /// <summary>
+        /// Check that flaoting point values are invalid
+        /// </summary>
+        /// <param name="input">The floating point value to be tested</param>
+        /// <param name="numResult">The interger result expected</param>
         [Theory]
         [InlineData(1.1, -1)]
         [InlineData(10.2, -1)]
