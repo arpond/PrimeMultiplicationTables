@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace PrimeMultiplicationTables
+namespace PrimeMultiplicationTables.Tests
 {
     /// <summary>
     /// Class for testing the prime generator class
