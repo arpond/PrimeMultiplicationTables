@@ -52,5 +52,20 @@ namespace PrimeMultiplicationTables
             PrimeGenerator testGenerator = new PrimeGenerator();
             Assert.Equal(numberOfPrimes, testGenerator.GetNPrimes(numberOfPrimes).Count);
         }
+
+
+        /// <summary>
+        /// Check that a negative number of primes returns an empty list
+        /// </summary>
+        /// <param name="numberOfPrimes"></param>
+        [Theory]
+        [InlineData(-1)]
+        [InlineData(-2)]
+        [InlineData(-100)]
+        public void NegativeSizedList(int numberOfPrimes)
+        {
+            PrimeGenerator testGenerator = new PrimeGenerator();
+            Assert.Equal(0, testGenerator.GetNPrimes(numberOfPrimes).Count);
+        }
     }
 }
