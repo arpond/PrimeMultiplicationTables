@@ -16,13 +16,13 @@ namespace PrimeMultiplicationTables
         public static Tuple<bool, int> ValidateInput(String input)
         {
             int number;
-            if (Int32.TryParse(input, out number))
+            if (!Int32.TryParse(input, out number) || number <= 0)
             {
-                return new Tuple<bool, int>(true, number); 
+                return new Tuple<bool, int>(false, -1);
             }
             else
             {
-                return new Tuple<bool, int>(false, -1);
+                return new Tuple<bool, int>(true, number);
             }
         }
     }
