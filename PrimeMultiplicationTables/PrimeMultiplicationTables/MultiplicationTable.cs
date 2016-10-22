@@ -16,16 +16,17 @@ namespace PrimeMultiplicationTables
         public List<List<ulong>> CreateMultiplicationTable(List<ulong> toMultiply)
         {
             var multiplicationTable = new List<List<ulong>>();
-            var zeroedRow = new List<ulong>(new ulong[toMultiply.Count]);
+            var numberOfValues = toMultiply.Count;
 
-            for (int row = 0; row < toMultiply.Count(); row++)
+            for (int row = 0; row < numberOfValues; row++)
             {
+                var zeroedRow = new List<ulong>(new ulong[numberOfValues]);
                 multiplicationTable.Add(zeroedRow);
             }
 
-            for (int row = 0; row < toMultiply.Count(); row++)
+            for (int row = 0; row < numberOfValues; row++)
             {
-                for (int column = 0; column < toMultiply.Count(); column++)
+                for (int column = 0; column < numberOfValues; column++)
                 {
                     multiplicationTable[row][column] = toMultiply[row] * toMultiply[column];
                 }
