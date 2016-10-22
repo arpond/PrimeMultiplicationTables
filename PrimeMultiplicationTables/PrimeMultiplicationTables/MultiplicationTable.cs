@@ -15,7 +15,31 @@ namespace PrimeMultiplicationTables
         /// <returns></returns>
         public String CreateStringTable(List<ulong> toMultiply)
         {
-            return "";
+            int numberOfValues = toMultiply.Count;
+            String stringTable = "";
+
+            if (numberOfValues == 0)
+            {
+                return stringTable;
+            }
+
+            var multiplicationTable = CreateMultiplicationTable(toMultiply);
+            List<ulong> headers = toMultiply;
+
+            for (int rowNumber = 0; rowNumber < numberOfValues; rowNumber++)
+            {
+                multiplicationTable[rowNumber].Insert(0, headers[rowNumber]);
+            }
+
+            stringTable = "|\t|\t" + string.Join("|\t", toMultiply.ToArray()) + "|\n";
+
+            for(int row = 0; row < numberOfValues; row++)
+            {
+                var currentRow = multiplicationTable[row];
+                stringTable += "|\t" + string.Join("|\t",currentRow.ToArray()) + "|\n";
+            }
+
+            return stringTable;
         }
 
         /// <summary>

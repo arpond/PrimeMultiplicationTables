@@ -56,11 +56,39 @@ namespace PrimeMultiplicationTables.Tests
             Assert.Equal(resultList, testTable.CreateMultiplicationTable(testList));
         }
 
+        /// <summary>
+        /// Check that an empty list returns an empty string
+        /// </summary>
         [Fact]
         public void EmptyStringTable()
         {
             MultiplicationTable testTable = new MultiplicationTable();
             Assert.Equal("", testTable.CreateStringTable(new List<ulong>()));
+        }
+
+        /// <summary>
+        /// Check that a list of a single item returns the correct string for the table
+        /// </summary>
+        [Fact]
+        public void SingleObjectStringTable()
+        {
+            MultiplicationTable testTable = new MultiplicationTable();
+            List<ulong> testList = new List<ulong>();
+            testList.Add(2);
+            Assert.Equal("|\t|\t2|\n|\t2|\t4|\n", testTable.CreateStringTable(testList));
+        }
+
+        /// <summary>
+        /// Check that a list of multiple items returns the correct string for the table
+        /// </summary>
+        [Fact]
+        public void MultipleObjectStringTable()
+        {
+            MultiplicationTable testTable = new MultiplicationTable();
+            List<ulong> testList = new List<ulong>();
+            testList.Add(2);
+            testList.Add(3);
+            Assert.Equal("|\t|\t2|\t3|\n|\t2|\t4|\t6|\n|\t3|\t6|\t9|\n", testTable.CreateStringTable(testList));
         }
     }
 }
