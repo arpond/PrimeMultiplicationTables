@@ -34,5 +34,33 @@ namespace PrimeMultiplicationTables.Tests
             resultList[0].Add(4);
             Assert.Equal(resultList, testTable.CreateMultiplicationTable(testList));
         }
+
+        /// <summary>
+        /// Check that the result of a list containing the numbers 2 and 3 returns the correct table.
+        /// </summary>
+        [Fact]
+        public void MultipleObjectMultiplicationList()
+        {
+            MultiplicationTable testTable = new MultiplicationTable();
+            List<ulong> testList = new List<ulong>();
+            testList.Add(2);
+            testList.Add(3);
+
+            var resultList = new List<List<ulong>>();
+            resultList.Add(new List<ulong>());
+            resultList.Add(new List<ulong>());
+            resultList[0].Add(4);
+            resultList[0].Add(6);
+            resultList[1].Add(6);
+            resultList[1].Add(9);
+            Assert.Equal(resultList, testTable.CreateMultiplicationTable(testList));
+        }
+
+        [Fact]
+        public void EmptyStringTable()
+        {
+            MultiplicationTable testTable = new MultiplicationTable();
+            Assert.Equal("", testTable.CreateStringTable(new List<ulong>()));
+        }
     }
 }

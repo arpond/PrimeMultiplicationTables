@@ -9,18 +9,29 @@ namespace PrimeMultiplicationTables
     class MultiplicationTable
     {
         /// <summary>
+        /// Creates a String multiplication table based on the list of values passed
+        /// </summary>
+        /// <param name="toMultiply">List of values to multiply</param>
+        /// <returns></returns>
+        public String CreateStringTable(List<ulong> toMultiply)
+        {
+            return "";
+        }
+
+        /// <summary>
         /// Creates a multiplication table of the values passed
         /// </summary>
         /// <param name="toMultiply">The values to multiply</param>
         /// <returns></returns>
-        public List<List<ulong>> CreateMultiplicationTable(List<ulong> toMultiply)
+        internal List<List<ulong>> CreateMultiplicationTable(List<ulong> toMultiply)
         {
             var multiplicationTable = new List<List<ulong>>();
             var numberOfValues = toMultiply.Count;
+            List<ulong> zeroedRow;
 
             for (int row = 0; row < numberOfValues; row++)
             {
-                var zeroedRow = new List<ulong>(new ulong[numberOfValues]);
+                zeroedRow = new List<ulong>(new ulong[numberOfValues]);
                 multiplicationTable.Add(zeroedRow);
             }
 

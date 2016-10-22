@@ -129,7 +129,7 @@ namespace PrimeMultiplicationTables
         [Theory]
         [InlineData(100)]
         [InlineData(10000)]
-        //[InlineData(20000)]
+        [InlineData(20000)]
         public void CheckNthNumberIsPrime(int numberOfPrimes)
         {
             PrimeGenerator testGenerator = new PrimeGenerator();
