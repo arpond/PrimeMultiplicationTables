@@ -37,14 +37,13 @@ namespace PrimeMultiplicationTables
         private String FormatTable(List<ulong> headers, List<List<ulong>> results)
         {
             int numberOfValues = headers.Count;
+            ulong largestResult = results[numberOfValues - 1][numberOfValues - 1];
+            int maxSize = largestResult.ToString().Length;
 
             for (int rowNumber = 0; rowNumber < numberOfValues; rowNumber++)
             {
                 results[rowNumber].Insert(0, headers[rowNumber]);
             }
-
-            ulong largestResult = results[numberOfValues - 1][numberOfValues - 1];
-            int maxSize = largestResult.ToString().Length;
 
             String formatedTable = "|";
             formatedTable = formatedTable.PadRight(maxSize + 3);
