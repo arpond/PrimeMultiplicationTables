@@ -18,9 +18,12 @@ namespace PrimeMultiplicationTables
         [Fact]
         public void GetFirstPrime()
         {
+            PrimeGenerator testGenerator = new PrimeGenerator();
             List<ulong> testList = new List<ulong>();
             testList.Add(1);
-            Assert.Equal<List<ulong>>(testList, PrimeGenerator.GetNPrimes(1));
+            Assert.Equal<List<ulong>>(testList, testGenerator.GetNPrimes(1));
         }
+
+        
     }
 }
