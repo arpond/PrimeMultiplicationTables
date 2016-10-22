@@ -75,7 +75,7 @@ namespace PrimeMultiplicationTables.Tests
             MultiplicationTable testTable = new MultiplicationTable();
             List<ulong> testList = new List<ulong>();
             testList.Add(2);
-            Assert.Equal("|\t|\t2|\n|\t2|\t4|\n", testTable.CreateStringTable(testList));
+            Assert.Equal("|   | 2 |\n| 2 | 4 |\n", testTable.CreateStringTable(testList));
         }
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace PrimeMultiplicationTables.Tests
             List<ulong> testList = new List<ulong>();
             testList.Add(2);
             testList.Add(3);
-            Assert.Equal("|\t|\t2|\t3|\n|\t2|\t4|\t6|\n|\t3|\t6|\t9|\n", testTable.CreateStringTable(testList));
+            Assert.Equal("|   | 2 | 3 |\n| 2 | 4 | 6 |\n| 3 | 6 | 9 |\n", testTable.CreateStringTable(testList));
         }
     }
 }
