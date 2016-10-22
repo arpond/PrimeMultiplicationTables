@@ -101,5 +101,45 @@ namespace PrimeMultiplicationTables
             testList.Add(7);
             Assert.Equal<List<ulong>>(testList, testGenerator.GetNPrimes(4));
         }
+
+        /// <summary>
+        /// Check the 100th Prime is 541
+        /// </summary>
+        [Fact]
+        public void Check100thPrime()
+        {
+            PrimeGenerator testGenerator = new PrimeGenerator();
+            Assert.Equal<ulong>(541, testGenerator.GetNPrimes(100).Last<ulong>());
+        }
+
+        /// <summary>
+        /// Check 10000th Prime is 104729
+        /// </summary>
+        [Fact]
+        public void Check10000thPrime()
+        {
+            PrimeGenerator testGenerator = new PrimeGenerator();
+            Assert.Equal<ulong>(104729, testGenerator.GetNPrimes(10000).Last<ulong>());
+        }
+
+        /// <summary>
+        /// Check 100th, 10000th and 20000th numbers generated are actually Prime.
+        /// </summary>
+        /// <param name="numberOfPrimes">Number of Primes generated</param>
+        [Theory]
+        [InlineData(100)]
+        [InlineData(10000)]
+        [InlineData(20000)]
+        public void CheckNthNumberIsPrime(int numberOfPrimes)
+        {
+            PrimeGenerator testGenerator = new PrimeGenerator();
+            var nthPrime = testGenerator.GetNPrimes(numberOfPrimes).Last<ulong>();
+
+            for (ulong currentDivisor = 2; currentDivisor < nthPrime; currentDivisor++)
+            {
+                Assert.NotEqual<ulong>(nthPrime % currentDivisor, 0);
+            }
+
+        }
     }
 }
