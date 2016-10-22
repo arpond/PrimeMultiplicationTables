@@ -12,7 +12,7 @@ namespace PrimeMultiplicationTables
         /// Creates a String multiplication table based on the list of values passed
         /// </summary>
         /// <param name="toMultiply">List of values to multiply</param>
-        /// <returns></returns>
+        /// <returns>A String representing the table with headers</returns>
         public String CreateStringTable(List<ulong> toMultiply)
         {
             String stringTable = "";
@@ -33,7 +33,7 @@ namespace PrimeMultiplicationTables
         /// </summary>
         /// <param name="headers">The headers for the table</param>
         /// <param name="results">The table results</param>
-        /// <returns></returns>
+        /// <returns>A formated table with the headers and results specified</returns>
         private String FormatTable(List<ulong> headers, List<List<ulong>> results)
         {
             int numberOfValues = headers.Count;
@@ -63,7 +63,7 @@ namespace PrimeMultiplicationTables
         /// Formats a single row
         /// </summary>
         /// <param name="row">Row to be formated</param>
-        /// <returns></returns>
+        /// <returns>A single formated row</returns>
         private String FormatRow(List<ulong> row, int columnWidth)
         {
             String formatedRow = String.Concat(row.Select(value => String.Format("| {0," + columnWidth + "} ", value))) + "|\n";
@@ -74,7 +74,7 @@ namespace PrimeMultiplicationTables
         /// Creates a multiplication table of the values passed
         /// </summary>
         /// <param name="toMultiply">The values to multiply</param>
-        /// <returns></returns>
+        /// <returns>The results of the multiplication as a list of lists</returns>
         internal List<List<ulong>> CreateMultiplicationTable(List<ulong> toMultiply)
         {
             var multiplicationTable = new List<List<ulong>>();
