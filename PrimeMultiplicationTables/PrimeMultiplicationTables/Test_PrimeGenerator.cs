@@ -24,6 +24,20 @@ namespace PrimeMultiplicationTables
             Assert.Equal<List<ulong>>(testList, testGenerator.GetNPrimes(1));
         }
 
-        
+        /// <summary>
+        /// Check that the List returned is the same size as the number of primes asked for.
+        /// </summary>
+        /// <param name="numberOfPrimes">The number of primes to be generated</param>
+        [Theory]
+        [InlineData(0)]
+        [InlineData(1)]
+        [InlineData(2)]
+        [InlineData(3)]
+        [InlineData(100)]
+        public void SizeOfList(int numberOfPrimes)
+        {
+            PrimeGenerator testGenerator = new PrimeGenerator();
+            Assert.Equal(numberOfPrimes, testGenerator.GetNPrimes(numberOfPrimes).Count);
+        }
     }
 }
