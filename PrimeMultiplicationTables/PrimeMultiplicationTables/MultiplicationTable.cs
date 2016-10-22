@@ -8,14 +8,27 @@ namespace PrimeMultiplicationTables
 {
     class MultiplicationTable
     {
-
+        /// <summary>
+        /// Creates a multiplication table of the values passed
+        /// </summary>
+        /// <param name="toMultiply">The values to multiply</param>
+        /// <returns></returns>
         public List<List<ulong>> CreateMultiplicationTable(List<ulong> toMultiply)
         {
-            var multiplicationTable = new List<List<ulong>>(toMultiply.Count);
+            var multiplicationTable = new List<List<ulong>>();
+            var zeroedRow = new List<ulong>(new ulong[toMultiply.Count]);
 
-            if (toMultiply.Count == 0)
+            for (int row = 0; row < toMultiply.Count(); row++)
             {
-                return multiplicationTable;
+                multiplicationTable.Add(zeroedRow);
+            }
+
+            for (int row = 0; row < toMultiply.Count(); row++)
+            {
+                for (int column = 0; column < toMultiply.Count(); column++)
+                {
+                    multiplicationTable[row][column] = toMultiply[row] * toMultiply[column];
+                }
             }
             return multiplicationTable;
         }
