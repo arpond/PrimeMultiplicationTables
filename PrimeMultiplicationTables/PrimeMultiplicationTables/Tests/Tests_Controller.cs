@@ -60,5 +60,16 @@ namespace PrimeMultiplicationTables.Tests
             var result = new Tuple<bool, int>(false, numResult);
             Assert.Equal(result, Controller.ValidateInput(input));
         }
+
+        [Theory]
+        [InlineData(1.1, -1)]
+        [InlineData(10.2, -1)]
+        [InlineData(143.4, -1)]
+        [InlineData(-78.1, -1)]
+        public void ValidateFloatInput(String input, int numResult)
+        {
+            var result = new Tuple<bool, int>(false, numResult);
+            Assert.Equal(result, Controller.ValidateInput(input));
+        }
     }
 }
