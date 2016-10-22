@@ -90,5 +90,33 @@ namespace PrimeMultiplicationTables.Tests
             testList.Add(3);
             Assert.Equal("|   | 2 | 3 |\n| 2 | 4 | 6 |\n| 3 | 6 | 9 |\n", testTable.CreateStringTable(testList));
         }
+
+        /// <summary>
+        /// Check that a list of items returns the correct string for the table 
+        /// where an item in the results is one digit larger than rest.
+        /// </summary>
+        [Fact]
+        public void OneObjectLargerStringTable()
+        {
+            MultiplicationTable testTable = new MultiplicationTable();
+            List<ulong> testList = new List<ulong>();
+            testList.Add(2);
+            testList.Add(4);
+            Assert.Equal("|    |  2 |  4 |\n|  2 |  4 |  8 |\n|  4 |  8 | 16 |\n", testTable.CreateStringTable(testList));
+        }
+
+        /// <summary>
+        /// Check that a list of items returns the correct string for the table 
+        /// where an item in the results is one digit larger than rest.
+        /// </summary>
+        [Fact]
+        public void OneObjectLargerStringTable2()
+        {
+            MultiplicationTable testTable = new MultiplicationTable();
+            List<ulong> testList = new List<ulong>();
+            testList.Add(4);
+            testList.Add(2);
+            Assert.Equal("|    |  4 |  2 |\n|  4 | 16 |  8 |\n|  2 |  8 |  4 |\n", testTable.CreateStringTable(testList));
+        }
     }
 }

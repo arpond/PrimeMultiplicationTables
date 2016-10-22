@@ -37,8 +37,7 @@ namespace PrimeMultiplicationTables
         private String FormatTable(List<ulong> headers, List<List<ulong>> results)
         {
             int numberOfValues = headers.Count;
-            ulong largestResult = results[numberOfValues - 1][numberOfValues - 1];
-            int maxSize = largestResult.ToString().Length;
+            int maxSize = SizeOfLargestValue(results);
 
             for (int rowNumber = 0; rowNumber < numberOfValues; rowNumber++)
             {
@@ -54,7 +53,6 @@ namespace PrimeMultiplicationTables
                 var currentRow = results[row];
                 formatedTable += FormatRow(currentRow, maxSize);
             }
-
             return formatedTable;
         }
 
@@ -67,6 +65,27 @@ namespace PrimeMultiplicationTables
         {
             String formatedRow = String.Concat(row.Select(value => String.Format("| {0," + columnWidth + "} ", value))) + "|\n";
             return formatedRow;
+        }
+
+        /// <summary>
+        /// Get the size of the largest value in the results
+        /// </summary>
+        /// <param name="results">The results to get the largest value from</param>
+        /// <returns>The size of the largest value</returns>
+        private int SizeOfLargestValue(List<List<ulong>> results)
+        {
+            int numberOfValues = results.Count;
+            int maxSize = 0;
+            foreach (var row in results)
+            {
+                ulong rowMax = row.Max();
+                int size = rowMax.ToString().Length;
+                if (size > maxSize)
+                {
+                    maxSize = size;
+                }
+            }
+            return maxSize;
         }
 
         /// <summary>
